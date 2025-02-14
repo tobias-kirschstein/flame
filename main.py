@@ -24,11 +24,11 @@ import pyrender
 import torch
 import trimesh
 
-from flame_pytorch import FLAME, get_config
+from flame_model import FLAME, FlameConfig
 
-config = get_config()
 radian = np.pi / 180.0
-flamelayer = FLAME(config)
+flame_config = FlameConfig()
+flamelayer = FLAME()
 
 # Creating a batch of mean shapes
 shape_params = torch.zeros(8, 100).cuda()
@@ -61,7 +61,7 @@ vertice, landmark = flamelayer(
 )  # For RingNet project
 print(vertice.size(), landmark.size())
 
-if config.optimize_eyeballpose and config.optimize_neckpose:
+if flame_config.optimize_eyeballpose and flame_config.optimize_neckpose:
     neck_pose = torch.zeros(8, 3).cuda()
     eye_pose = torch.zeros(8, 6).cuda()
     vertice, landmark = flamelayer(

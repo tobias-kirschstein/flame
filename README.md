@@ -1,3 +1,17 @@
+Adaption of the FLAME model as a proper Python library.  
+Install via 
+```shell
+pip install flame_model
+```
+Usage:
+```python
+from flame_model import FLAME
+
+flame = FLAME()
+```
+Original README below
+<hr />
+
 # FLAME: Articulated Expressive 3D Head Model (PyTorch)
 
 This is an implementation of the [FLAME](http://flame.is.tue.mpg.de/) 3D head model in PyTorch.
